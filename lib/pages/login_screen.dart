@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../widgets/login_form.dart';
-import '../widgets/login_button.dart';
-import '../widgets/register_now_text.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,51 +6,136 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(
-                  Icons.phone_android,
-                  size: 100,
-                ),
-                const SizedBox(height: 75),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Logo
+              Image.network(
+                'https://raw.githubusercontent.com/D3x2LM/celular_movil/main/assets/logo.png',
+                height: 100,
+              ),
+              const SizedBox(height: 50),
 
-                // Hello again!
-                Text(
-                  '¡Hola de nuevo!',
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 52,
+              // Email TextField
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
                   ),
                 ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Te extrañamos',
+              ),
+              const SizedBox(height: 16),
+
+              // Password TextField
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+
+              // Remember Password and Forgot Password
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) {},
+                      ),
+                      const Text('Recordar Contraseña'),
+                    ],
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Olvidé mi contraseña',
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // Login Button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text(
+                    'Ingresar',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Create Account Button
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signup');
+                },
+                child: const Text(
+                  'Crear cuenta',
                   style: TextStyle(
-                    fontSize: 20,
+                    color: Colors.deepPurple,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 50),
+              ),
+              const SizedBox(height: 30),
 
-                // Login form
-                const LoginForm(),
-                const SizedBox(height: 10),
-
-                // Login button
-                LoginButton(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/signup');
-                  },
-                ),
-                const SizedBox(height: 25),
-
-                // Register now text
-                const RegisterNowText(),
-              ],
-            ),
+              // Social Media Icons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.facebook),
+                    onPressed: () {},
+                    color: Colors.blue,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.camera_alt),
+                    onPressed: () {},
+                    color: Colors.pink,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.reddit),
+                    onPressed: () {},
+                    color: Colors.orange,
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
