@@ -7,9 +7,9 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.green,
         elevation: 0,
         title: const Text('Registro'),
         leading: IconButton(
@@ -152,7 +152,7 @@ class SignUpScreen extends StatelessWidget {
                   child: const Text(
                     'Volver al login',
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Colors.green,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
