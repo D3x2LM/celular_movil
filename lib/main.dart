@@ -6,16 +6,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Celular Móvil',
       debugShowCheckedModeBanner: false,
-      title: 'Voya Sign Up',
-      theme: ThemeData(primarySwatch: Colors.green),
-      home: const LoginScreen(),
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const LoginScreen(),
+        '/signup': (context) => const SignUpScreen(),
+      },
     );
   }
 }
@@ -103,8 +108,8 @@ class SignUpScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               // Divider
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Expanded(child: Divider(thickness: 1)),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
