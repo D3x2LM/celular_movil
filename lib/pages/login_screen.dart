@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               // Logo
               Image.network(
-                'https://raw.githubusercontent.com/D3x2LM/celular_movil/main/assets/logo.png',
+                'https://i.postimg.cc/NMNky3ts/Voya-image.png',
                 height: 100,
               ),
               const SizedBox(height: 50),
@@ -68,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                     child: const Text(
                       'Olvidé mi contraseña',
                       style: TextStyle(
-                        color: Colors.deepPurple,
+                        color: Colors.green,
                       ),
                     ),
                   ),
@@ -99,7 +99,6 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Create Account Button
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/signup');
@@ -107,7 +106,7 @@ class LoginScreen extends StatelessWidget {
                 child: const Text(
                   'Crear cuenta',
                   style: TextStyle(
-                    color: Colors.deepPurple,
+                    color: Colors.green,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

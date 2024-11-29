@@ -12,6 +12,10 @@ class SignUpScreen extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         elevation: 0,
         title: const Text('Registro'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: SafeArea(
         child: Center(
@@ -112,7 +116,14 @@ class SignUpScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: GestureDetector(
                     onTap: () {
-                      // Aquí irá la lógica de registro
+                      // Simular registro exitoso y volver al login
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Registro exitoso'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                      Navigator.pop(context); // Volver al login
                     },
                     child: Container(
                       padding: const EdgeInsets.all(20),
@@ -130,6 +141,19 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+
+                // Volver al login button
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text(
+                    'Volver al login',
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
