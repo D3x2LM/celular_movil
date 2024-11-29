@@ -1,66 +1,54 @@
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+  const LoginForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TextFormField(
-          decoration: const InputDecoration(
-            labelText: 'Email',
-            border: OutlineInputBorder(),
-            filled: true,
-            fillColor: Colors.white,
-          ),
-        ),
-        const SizedBox(height: 16),
-        TextFormField(
-          obscureText: true,
-          decoration: const InputDecoration(
-            labelText: 'Password',
-            border: OutlineInputBorder(),
-            filled: true,
-            fillColor: Colors.white,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton(
-              onPressed: () {},
-              child: const Text('Olvidé mi contraseña'),
+        // Email textfield
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(12),
             ),
-            Row(
-              children: [
-                Checkbox(
-                  value: false,
-                  onChanged: (value) {},
+            child: const Padding(
+              padding: EdgeInsets.only(left: 20.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Email',
                 ),
-                const Text('Recordar Contraseña'),
-              ],
+              ),
             ),
-          ],
-        ),
-        const SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: Colors.green,
-          ),
-          child: const Text(
-            'Ingresar',
-            style: TextStyle(color: Colors.white),
           ),
         ),
-        const SizedBox(height: 16),
-        TextButton(
-          onPressed: () {},
-          child: const Text('Crear cuenta'),
+        const SizedBox(height: 10),
+
+        // Password textfield
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.only(left: 20.0),
+              child: TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Contraseña',
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     );
